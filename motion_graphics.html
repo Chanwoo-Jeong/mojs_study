@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style></style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@mojs/core">
+    </script>
+    <script>
+        var c1 = new mojs.Shape({
+            shape:'circle',
+            radius:{0:'rand(10,50'},
+            left:0,
+            top:0,
+            x:0,
+            y:0,
+            fill:'black',
+            stroke:'tomato',
+            strokeWidth:'rand(1,10)',
+            duration:'rand(200,2000)',
+            delay:500
+            // isShowStart:true
+        });
+        document.addEventListener('click',function(e){
+            c1.generate().tune({x:e.pageX, y:e.pageY}).replay();
+            // c1.play(); play와 replay의 차이는 에니메이션 동작 중 클릭했을때 바로 reset이 되느냐 안되느냐의 차이이다. replay의 경우 에니메이션 동작 중 바로 reset되어 다시 실행된다. (따라서 replay의 사용이 더 선호된다.)
+
+            //generate를 통해 클릭마다 rand의 값을 재생성할 수 있게 된다.
+        });
+    </script>
+</body>
+</html>
